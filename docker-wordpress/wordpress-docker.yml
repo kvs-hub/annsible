@@ -1,0 +1,21 @@
+---
+- hosts: docker_server
+
+  vars_files:
+    - defaults/main.yml
+
+  remote_user: "{{ system_user }}"
+  become: yes
+  gather_facts: no
+  serial: 1
+
+  vars_prompt:
+
+    - name: domain
+      prompt: "\n------
+              \n\nSpecify WordPress URL"
+      private: no
+      default: "kvsd-wp-test.ru"
+
+  roles:
+  - wordpress-docker
