@@ -1,0 +1,3 @@
+---
+system_user: ansible
+compose_project_dir: /home/{{ system_user }}/compose-wordpress
